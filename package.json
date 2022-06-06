@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/nicolaspfigueroa/solo-project/issues"
   },
-  "homepage": "https://github.com/nicolaspfigueroa/solo-project#readme"
+  "homepage": "https://github.com/nicolaspfigueroa/solo-project#readme",
+  "dependencies": {
+    "react-router-dom": "^6.3.0"
+  }
 }
