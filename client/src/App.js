@@ -9,7 +9,6 @@ function App() {
   return (
     <Router>
       <div className="App">
-        App
         <NavBar />
         <div className="container">
           <Routes>
