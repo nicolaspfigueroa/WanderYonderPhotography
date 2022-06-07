@@ -24,7 +24,7 @@ export default function UploadForm() {
     <form>
       <input type = "file" onChange = {changeHandler} />
       <div className = "output">
-        { error && <div classNAme = "error">{ error }</div> }
+        { error && <div className = "error">{ error }</div> }
       </div>
     </form>
   )
