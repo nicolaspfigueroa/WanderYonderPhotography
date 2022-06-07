@@ -4,14 +4,12 @@ import NavBar from './components/NavBar';
 import Home from './pages/Home';
 import About from './pages/About';
 import Photos from './pages/Photos';
-import UploadForm from './components/UploadForm';
 
 function App() {
   return (
     <Router>
       <div className="App">
         <NavBar />
-        <UploadForm />
         <div className="container">
           <Routes>
             <Route path="/" element = {<Home />} />
