@@ -1,7 +1,9 @@
 // Import the functions you need from the SDKs you need
-import * as firebase from 'firebase/app';
-import 'firebase/storage';
-import 'firebase/firestore';
+//import * as firebase from 'firebase/compat/app';
+//import 'firebase/compat/storage';
+//import 'firebase/compat/firestore';
+import { getFirestore } from "firebase/firestore";
+import { getStorage } from "firebase/storage";
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 
@@ -24,7 +26,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
-const projectStorage = firebase.storage();
-const projectFirestore = firebase.firestore();
+const projectStorage = getStorage(app);
+const projectFirestore = getFirestore(app);
 
 export { projectStorage, projectFirestore };
