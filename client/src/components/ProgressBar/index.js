@@ -2,8 +2,7 @@ import React, { useEffect } from 'react';
 import useStorage from '../../hooks/useStorage';
 import './styles.css';
 
-export default function ProgressBar({ file, setFile }) {
-  const { url, progress } = useStorage(file);
+export default function ProgressBar({ file, setFile, progress, url }) {
   console.log(progress, url);
 
   useEffect(() => {

@@ -1,10 +1,15 @@
 import React from 'react'
 import { useState } from 'react';
 import ProgressBar from '../ProgressBar';
+import { projectStorage, projectFirestore } from '../../firebase/config';
+import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
+import { imageService } from '../../services/imageService';
 
 export default function UploadForm() {
   const [file, setFile] = useState(null);
   const [error, setError] = useState(null);
+  const [progress, setProgress] = useState(0);
+  const [url, setUrl] = useState(null);
 
   const types = ['image/png', 'image/jpg', 'image/jpeg'];
 
@@ -22,14 +27,48 @@ export default function UploadForm() {
     }
   }
 
+  const submitHandler = (e) => {
+    e.preventDefault();
+    // create reference
+    console.log(projectStorage);
+    const storageRef = ref(projectStorage, file.name);
+    console.log(storageRef);
+    //const collectionRef = projectFirestore.collection('images');
+
+    const uploadTask = uploadBytesResumable(storageRef, file);
+
+    uploadTask.on(
+        'state_changed',
+        (snapshot) => {
+            let percentage =
+                (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            setProgress(percentage);
+        },
+        (err) => {
+            setError(err);
+        },
+        () => {
+            getDownloadURL(uploadTask.snapshot.ref).then(async (url) => {
+                setUrl(url)
+                console.log('calling service');
+                await imageService.createImage(url);
+            });
+        }
+    );
+  }
+
+  //create a function that runs on submit
+  //will perform same function as useEffect on useStorage file
+  //create progress in upload form, pass it as a prop into progress
   return (
-    <form>
+    <form onSubmit = {submitHandler} >
       <input type = "file" onChange = {changeHandler} />
       <div className = "output">
         { error && <div className = "error">{ error }</div> }
         { file && <div>{ file.name }</div> }
-        { file && <ProgressBar file = {file} setFile = {setFile}/>}
+        { file && <ProgressBar file = {file} setFile = {setFile} progress = {progress} url = {url}/>}
       </div>
+      <button type = "submit"></button>
     </form>
   )
 }

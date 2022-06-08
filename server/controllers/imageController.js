@@ -20,7 +20,7 @@ exports.createImage = async function (req, res) {
     const newImage = new Image({ title, url });
     await newImage.save();
 
-    return res.status(201).send({ res: newImage, error: false });
+    return res.status(201).send({ error: false });
   } catch (error) {
     console.log(error);
   }
