@@ -6,11 +6,12 @@ export default function UploadForm() {
   const [file, setFile] = useState(null);
   const [error, setError] = useState(null);
 
-  const types = ['image/png', 'image/jpg'];
+  const types = ['image/png', 'image/jpg', 'image/jpeg'];
 
   const changeHandler = (e) => {
     let selected = e.target.files[0];
     console.log(selected);
+    console.log(selected.type);
 
     if (selected && types.includes(selected.type)) {
       setFile(selected);
