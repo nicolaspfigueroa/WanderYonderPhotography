@@ -1,5 +1,6 @@
 import React from 'react';
 import useStorage from '../../hooks/useStorage';
+import './styles.css';
 
 export default function ProgressBar({ file, setFile }) {
   const { url, progress } = useStorage(file);
@@ -7,6 +8,6 @@ export default function ProgressBar({ file, setFile }) {
 
 
   return (
-    <div className = "progress-bar">ProgressBar</div>
+    <div className = "progress-bar" style = {{width: progress + '%'}}></div>
   )
 }
