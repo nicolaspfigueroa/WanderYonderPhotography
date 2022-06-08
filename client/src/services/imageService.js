@@ -13,7 +13,7 @@ function createImage(image) {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(image),
+    body: JSON.stringify({url: image}),
   })
     .then((res) => res.json())
     .then((data) => data)

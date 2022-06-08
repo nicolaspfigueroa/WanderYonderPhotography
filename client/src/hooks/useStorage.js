@@ -1,8 +1,9 @@
 import { useState, useEffect} from 'react';
 import { projectStorage, projectFirestore } from '../firebase/config';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
-import { collection, addDoc } from "firebase/firestore";
-import { doc, setDoc } from "firebase/firestore";
+//import { collection, addDoc } from "firebase/firestore";
+//import { doc, setDoc } from "firebase/firestore";
+import { imageService } from '../services/imageService';
 
 const useStorage = (file) => {
   const [progress, setProgress] = useState(0);
@@ -31,6 +32,7 @@ const useStorage = (file) => {
         () => {
             getDownloadURL(uploadTask.snapshot.ref).then(async (url) => {
                 setUrl(url)
+                await imageService.createImage(url);
             });
         }
     );
