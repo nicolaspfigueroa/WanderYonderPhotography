@@ -1,7 +1,10 @@
 import React from 'react'
 
-export default function Photo() {
+export default function Photo({ photo }) {
   return (
-    <div>Photo</div>
+    <>
+    <img src = {photo.url}></img>
+    <div>{photo.title}</div>
+    </>
   )
 }
