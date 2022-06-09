@@ -1,11 +1,11 @@
 import React from 'react'
 import Photo from '../Photo';
+import './styles.css';
 
 export default function PhotoGrid({ photos }) {
 
   return (
     <>
-    <div>PhotoGrid</div>
     <div className= "photo-grid-container">
       {photos.map((photo => {
         return <Photo

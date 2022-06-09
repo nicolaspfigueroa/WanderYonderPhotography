@@ -1,4 +1,9 @@
 img {
-  height: 20%;
-  width: 20%;
+  height: 300px;
+  width: 300px;
+}
+
+.image-container {
+  padding: 15px;
+  margin: 15px;
 }

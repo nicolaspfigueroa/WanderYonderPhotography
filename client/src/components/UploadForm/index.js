@@ -87,7 +87,7 @@ export default function UploadForm() {
         { file && <div>{ file.name }</div> }
         { file && <ProgressBar  progress = {progress} />}
       </div>
-      <button type = "submit">Submit</button>
+      <button disabled={photo.title.length === 0 && true} type = "submit">Submit</button>
     </form>
   )
 }

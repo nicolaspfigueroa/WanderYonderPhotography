@@ -4,6 +4,7 @@ import NavBar from './components/NavBar';
 import Home from './pages/Home';
 import About from './pages/About';
 import Photos from './pages/Photos';
+import UploadForm from './components/UploadForm';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
             <Route path="/" element = {<Home />} />
             <Route path="/about" element = {<About />} />
             <Route path="/photos" element = {<Photos />} />
+            <Route path="/admin" element = {<UploadForm />} />
           </Routes>
         </div>
       </div>

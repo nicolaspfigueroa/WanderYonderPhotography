@@ -26,9 +26,7 @@ export default function Photos( ) {
 
   return (
     <>
-    <div>Photos</div>
     <PhotoGrid photos = { photos }/>
-    <UploadForm />
     </>
   )
 }
