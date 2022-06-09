@@ -5,18 +5,22 @@ import { projectStorage, projectFirestore } from '../../firebase/config';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { imageService } from '../../services/imageService';
 
+const initialPhoto = {
+  url: '',
+  title: ''
+}
+
 export default function UploadForm() {
   const [file, setFile] = useState(null);
   const [error, setError] = useState(null);
   const [progress, setProgress] = useState(0);
   const [url, setUrl] = useState(null);
+  const [photo, setPhoto] = useState(initialPhoto);
 
   const types = ['image/png', 'image/jpg', 'image/jpeg'];
 
   const changeHandler = (e) => {
     let selected = e.target.files[0];
-    console.log(selected);
-    console.log(selected.type);
 
     if (selected && types.includes(selected.type)) {
       setFile(selected);
@@ -27,16 +31,18 @@ export default function UploadForm() {
     }
   }
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setPhoto((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
   const submitHandler = (e) => {
     e.preventDefault();
     // create reference
-
-
-    console.log(projectStorage);
-    console.log(file.name);
-    console.log(file);
     const storageRef = ref(projectStorage, file.name);
-    console.log(storageRef);
 
     const uploadTask = uploadBytesResumable(storageRef, file);
 
@@ -54,7 +60,8 @@ export default function UploadForm() {
             getDownloadURL(uploadTask.snapshot.ref).then(async (url) => {
                 setUrl(url)
                 console.log('calling service');
-                await imageService.createImage(url);
+                photo.url = url;
+                await imageService.createImage(photo);
             });
         }
     );
@@ -65,7 +72,17 @@ export default function UploadForm() {
   //create progress in upload form, pass it as a prop into progress
   return (
     <form onSubmit = {submitHandler} >
-      <input type = "file" onChange = {changeHandler} />
+      <input 
+      type = "file" 
+      onChange = {changeHandler} 
+      />
+      <input
+          type="text"
+          placeholder="title"
+          name="title"
+          value={photo.title}
+          onChange={handleChange}
+        />
       <div className = "output">
         { error && <div className = "error">{ error }</div> }
         { file && <div>{ file.name }</div> }

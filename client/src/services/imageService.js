@@ -7,13 +7,13 @@ function getImages() {
     .catch((e) => e);
 }
 
-function createImage(image) {
+function createImage(photo) {
   return fetch(`${baseURL}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({url: image}),
+    body: JSON.stringify(photo),
   })
     .then((res) => res.json())
     .then((data) => data)
