@@ -1,9 +1,15 @@
-img {
+img.photo {
   height: 300px;
   width: 300px;
+  transition: 0.4s ease-in-out;
+}
+
+img.photo:hover {
+  transform: scale(1.10);
 }
 
 .image-container {
   padding: 15px;
   margin: 15px;
 }
+

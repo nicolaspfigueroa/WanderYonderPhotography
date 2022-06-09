@@ -1,5 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router-dom';
+import './styles.css';
 
 export default function PhotoDetail({ photos }) {
   const { title } = useParams();
@@ -9,7 +10,7 @@ export default function PhotoDetail({ photos }) {
   return (
     <>
     <div className = "container">
-      <img src = {photo[0].url}></img>
+      <img className = "detail" src = {photo[0].url}></img>
       <div>{photo[0].title}</div>
     </div>
     </>

@@ -6,7 +6,7 @@ export default function Photo({ photo }) {
   return (
     <div className = "image-container">
       <Link to = {`/photos/${photo.title}`}>
-        <img src = {photo.url}></img>
+        <img className = "photo" src = {photo.url}></img>
       </Link>
       <div>{photo.title}</div>
     </div>
