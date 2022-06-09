@@ -14,7 +14,6 @@ export default function UploadForm() {
   const [file, setFile] = useState(null);
   const [error, setError] = useState(null);
   const [progress, setProgress] = useState(0);
-  const [url, setUrl] = useState(null);
   const [photo, setPhoto] = useState(initialPhoto);
 
   const types = ['image/png', 'image/jpg', 'image/jpeg'];
@@ -58,13 +57,13 @@ export default function UploadForm() {
         },
         () => {
             getDownloadURL(uploadTask.snapshot.ref).then(async (url) => {
-                setUrl(url)
                 console.log('calling service');
                 photo.url = url;
                 await imageService.createImage(photo);
             });
         }
     );
+    setPhoto(initialPhoto);
   }
 
   //create a function that runs on submit
@@ -86,7 +85,7 @@ export default function UploadForm() {
       <div className = "output">
         { error && <div className = "error">{ error }</div> }
         { file && <div>{ file.name }</div> }
-        { file && <ProgressBar file = {file} setFile = {setFile} progress = {progress} url = {url}/>}
+        { file && <ProgressBar  progress = {progress} />}
       </div>
       <button type = "submit">Submit</button>
     </form>
