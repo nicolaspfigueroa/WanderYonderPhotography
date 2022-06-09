@@ -2,17 +2,23 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { imageService } from './services/imageService';
+import auth from './utils/auth';
 import NavBar from './components/NavBar';
 import Home from './pages/Home';
 import About from './pages/About';
 import Photos from './pages/Photos';
 import UploadForm from './components/UploadForm';
 import PhotoDetail from './components/PhotoDetail';
+import Login from './components/Login'
+import Logout from './components/Logout'
 
 
 function App() {
   const [photos, setPhotos] = useState([]);
   const [error, setError] = useState(null);
+
+  const initialState = auth.isAuthenticated();
+  const [isAuthenticated, setIsAuthenticated] = useState(initialState);
 
   useEffect(() => {
     getAllPhotos();
@@ -32,12 +38,14 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <NavBar />
+        <NavBar isAuthenticated = { isAuthenticated }/>
         <div className="container">
           <Routes>
             <Route path="/" element = {<Home />} />
             <Route path="/about" element = {<About />} />
             <Route path="/photos" element = {<Photos photos = {photos}/>} />
+            <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />}/>
+            <Route path="/logout" element={<Logout setIsAuthenticated={setIsAuthenticated} />}/>
             <Route path="/admin" element = {<UploadForm />} />
             <Route path = "/photos/:title" element = {<PhotoDetail photos = {photos}/>} />
           </Routes>
