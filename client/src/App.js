@@ -46,7 +46,7 @@ function App() {
             <Route path="/photos" element = {<Photos photos = {photos}/>} />
             <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />}/>
             <Route path="/logout" element={<Logout setIsAuthenticated={setIsAuthenticated} />}/>
-            <Route path="/admin" element = {<UploadForm />} />
+            <Route path="/admin" element = {<UploadForm isAuthenticated = { isAuthenticated }/>} />
             <Route path = "/photos/:title" element = {<PhotoDetail photos = {photos}/>} />
           </Routes>
         </div>
