@@ -9,8 +9,9 @@ import About from './pages/About';
 import Photos from './pages/Photos';
 import UploadForm from './components/UploadForm';
 import PhotoDetail from './components/PhotoDetail';
-import Login from './components/Login'
-import Logout from './components/Logout'
+import Login from './components/Login';
+import Logout from './components/Logout';
+import Admin from './components/Admin';
 
 
 function App() {
@@ -46,7 +47,7 @@ function App() {
             <Route path="/photos" element = {<Photos photos = {photos}/>} />
             <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />}/>
             <Route path="/logout" element={<Logout setIsAuthenticated={setIsAuthenticated} />}/>
-            <Route path="/admin" element = {<UploadForm isAuthenticated = { isAuthenticated }/>} />
+            <Route path="/admin" element = {<Admin isAuthenticated = { isAuthenticated } getAllPhotos = {getAllPhotos}/>} />
             <Route path = "/photos/:title" element = {<PhotoDetail photos = {photos}/>} />
           </Routes>
         </div>

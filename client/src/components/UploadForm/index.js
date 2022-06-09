@@ -10,7 +10,7 @@ const initialPhoto = {
   title: ''
 }
 
-export default function UploadForm( { isAuthenticated } ) {
+export default function UploadForm( { getAllPhotos } ) {
   const [file, setFile] = useState(null);
   const [error, setError] = useState(null);
   const [progress, setProgress] = useState(0);
@@ -64,37 +64,31 @@ export default function UploadForm( { isAuthenticated } ) {
         }
     );
     setPhoto(initialPhoto);
+    getAllPhotos();
   }
 
   //create a function that runs on submit
   //will perform same function as useEffect on useStorage file
   //create progress in upload form, pass it as a prop into progress
-  if (isAuthenticated) {
-    return (
-      <form onSubmit = {submitHandler} >
-        <input 
-        type = "file" 
-        onChange = {changeHandler} 
+  return (
+    <form onSubmit = {submitHandler} >
+      <input 
+      type = "file" 
+      onChange = {changeHandler} 
+      />
+      <input
+          type="text"
+          placeholder="title"
+          name="title"
+          value={photo.title}
+          onChange={handleChange}
         />
-        <input
-            type="text"
-            placeholder="title"
-            name="title"
-            value={photo.title}
-            onChange={handleChange}
-          />
-        <div className = "output">
-          { error && <div className = "error">{ error }</div> }
-          { file && <div>{ file.name }</div> }
-          { file && <ProgressBar  progress = {progress} />}
-        </div>
-        <button disabled={photo.title.length === 0 && true} type = "submit">Submit</button>
-      </form>
-    )
-  }
-  else {
-    return (
-      <div>Access Denied</div>
-    )
-  }
+      <div className = "output">
+        { error && <div className = "error">{ error }</div> }
+        { file && <div>{ file.name }</div> }
+        { file && <ProgressBar  progress = {progress} />}
+      </div>
+      <button disabled={photo.title.length === 0 && true} type = "submit">Submit</button>
+    </form>
+  )
 }
