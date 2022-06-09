@@ -1,22 +1,8 @@
-const BASE_URL = 'http://localhost:3001';
+const BASE_URL = 'http://localhost:3001/user';
 
 // possible to refactor into a 'fetch factory' to reduce repetition
 
 const apiService = {};
-
-apiService.register = (user) => {
-  // REMOVE-START
-  return fetch(`${BASE_URL}/register`, {
-    method: 'POST',
-    credentials: 'include',
-    mode: 'cors',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(user),
-  })
-    .then((res) => res.json())
-    .catch((err) => console.log(err));
-  // REMOVE-END
-};
 
 apiService.login = (user) => {
   // REMOVE-START
@@ -26,19 +12,6 @@ apiService.login = (user) => {
     mode: 'cors',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(user),
-  })
-    .then((res) => res.json())
-    .catch((err) => console.log(err));
-  // REMOVE-END
-};
-
-apiService.profile = () => {
-  // REMOVE-START
-  return fetch(`${BASE_URL}/me`, {
-    method: 'GET',
-    credentials: 'include',
-    mode: 'cors',
-    headers: { 'Content-Type': 'application/json' },
   })
     .then((res) => res.json())
     .catch((err) => console.log(err));

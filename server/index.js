@@ -5,7 +5,14 @@ const { router } = require('./router/index');
 
 PORT = 3001;
 
-app.use(cors()); //cors access
+const corsConfig = {
+  // REMOVE-START
+  origin: 'http://localhost:3000',
+  credentials: true,
+  // REMOVE-END
+};
+
+app.use(cors(corsConfig)); //cors access
 app.use(express.json()); // body parser
 app.use(router); //router
 
