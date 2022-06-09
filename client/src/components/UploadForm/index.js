@@ -31,6 +31,8 @@ export default function UploadForm() {
     e.preventDefault();
     // create reference
     console.log(projectStorage);
+    console.log(file.name);
+    console.log(file);
     const storageRef = ref(projectStorage, file.name);
     console.log(storageRef);
     //const collectionRef = projectFirestore.collection('images');
@@ -68,7 +70,7 @@ export default function UploadForm() {
         { file && <div>{ file.name }</div> }
         { file && <ProgressBar file = {file} setFile = {setFile} progress = {progress} url = {url}/>}
       </div>
-      <button type = "submit"></button>
+      <button type = "submit">Submit</button>
     </form>
   )
 }

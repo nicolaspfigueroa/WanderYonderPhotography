@@ -7,7 +7,7 @@ export default function ProgressBar({ file, setFile, progress, url }) {
 
   useEffect(() => {
     if (url) {
-      setFile(null);
+      //setFile(null);
     }
   }, [url, setFile])
 
