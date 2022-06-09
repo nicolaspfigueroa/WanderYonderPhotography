@@ -47,7 +47,7 @@ function App() {
             <Route path="/photos" element = {<Photos photos = {photos}/>} />
             <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />}/>
             <Route path="/logout" element={<Logout setIsAuthenticated={setIsAuthenticated} />}/>
-            <Route path="/admin" element = {<Admin isAuthenticated = { isAuthenticated } getAllPhotos = {getAllPhotos}/>} />
+            <Route path="/admin" element = {<Admin isAuthenticated = { isAuthenticated } getAllPhotos = {getAllPhotos} photos = {photos}/>} />
             <Route path = "/photos/:title" element = {<PhotoDetail photos = {photos}/>} />
           </Routes>
         </div>
