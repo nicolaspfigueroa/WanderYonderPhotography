@@ -30,12 +30,13 @@ export default function UploadForm() {
   const submitHandler = (e) => {
     e.preventDefault();
     // create reference
+
+
     console.log(projectStorage);
     console.log(file.name);
     console.log(file);
     const storageRef = ref(projectStorage, file.name);
     console.log(storageRef);
-    //const collectionRef = projectFirestore.collection('images');
 
     const uploadTask = uploadBytesResumable(storageRef, file);
 
