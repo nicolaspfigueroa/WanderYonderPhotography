@@ -27,12 +27,15 @@ const Login = (props) => {
     const { email, password } = state;
     const user = { email, password };
     const res = await apiService.login(user);
+    console.log(res);
     if (res.error) {
       alert(`${res.message}`);
       setState(initialState);
     } else {
       // REMOVE-END
       // This sets isAuthenticated = true and redirects to profile
+      const { accessToken } = res;
+      localStorage.setItem('accessToken', accessToken);
       props.setIsAuthenticated(true);
       auth.login(() => navigate('/admin'));
       // REMOVE-START

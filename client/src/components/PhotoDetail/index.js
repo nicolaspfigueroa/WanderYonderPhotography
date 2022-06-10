@@ -1,13 +1,21 @@
 import React from 'react'
 import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
 import './styles.css';
 
-export default function PhotoDetail({ photos }) {
-  const { title } = useParams();
-  console.log(photos);
-  console.log(title);
+export default function PhotoDetail({ photos, getAllPhotos }) {
+  const { id } = useParams();
 
-  const photo = photos.filter(image => image.title === title);
+  // useEffect(() => {
+  //   getAllPhotos();
+  //   console.log('used');
+  // }, []);
+
+  console.log(photos);
+
+  
+
+  const photo = photos.filter(image => image.id === id);
   console.log(photo);
 
   return (

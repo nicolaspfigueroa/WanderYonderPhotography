@@ -13,6 +13,7 @@ const Logout = (props) => {
 
   const handleAuth = () => {
     props.setIsAuthenticated(false);
+    localStorage.removeItem('accessToken');
     auth.logout(() => navigate('/'));
   };
 

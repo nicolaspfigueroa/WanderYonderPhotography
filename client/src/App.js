@@ -22,6 +22,9 @@ function App() {
 
   useEffect(() => {
     getAllPhotos();
+    if (localStorage.getItem('accessToken')) {
+      setIsAuthenticated(true);
+    }
   }, []);
 
   const getAllPhotos = async () => {
@@ -55,7 +58,7 @@ function App() {
             <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />}/>
             <Route path="/logout" element={<Logout setIsAuthenticated={setIsAuthenticated} />}/>
             <Route path="/admin" element = {<Admin isAuthenticated = { isAuthenticated } getAllPhotos = {getAllPhotos} photos = {photos} handleDelete = {handleDelete}/>} />
-            <Route path = "/photos/:title" element = {<PhotoDetail photos = {photos}/>} />
+            <Route path = "/photos/:id" element = {<PhotoDetail photos = {photos} getAllPhotos = {getAllPhotos}/>} />
           </Routes>
         </div>
       </div>

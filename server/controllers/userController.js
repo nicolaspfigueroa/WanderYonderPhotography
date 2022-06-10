@@ -11,7 +11,7 @@ const login = async (req, res) => {
     //const validatedPass = await bcrypt.compare(password, user.password);
     const validatedPass = password === user.password;
     if (!validatedPass) throw new Error();
-    const accessToken = jwt.sign({ _id: user._id }, SECRET_KEY);
+    const accessToken = jwt.sign({ _id: user._id }, SECRET_KEY, {expiresIn: 3600});
     res.status(200).send({ accessToken });
   } catch (error) {
     res
