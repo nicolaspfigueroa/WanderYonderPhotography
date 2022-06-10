@@ -6,7 +6,7 @@ export default function Admin( {isAuthenticated, getAllPhotos, photos, handleDel
 
   const submitHandler = (e) => {
     const { name, value } = e.target;
-    
+
   }
 
   if (isAuthenticated) {
@@ -18,9 +18,10 @@ export default function Admin( {isAuthenticated, getAllPhotos, photos, handleDel
             return <div key = {photo._id}>
               <Photo key = {photo._id} photo = {photo}/>
               <button onClick={() => (handleDelete(photo._id))}>Delete</button>
-              <form>
+              <form onSubmit>
                 <input>
                 </input>
+                <button></button>
               </form>
               </div>;
             }))
