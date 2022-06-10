@@ -60,11 +60,11 @@ export default function UploadForm( { getAllPhotos } ) {
                 console.log('calling service');
                 photo.url = url;
                 await imageService.createImage(photo);
+                await getAllPhotos();
             });
         }
     );
     setPhoto(initialPhoto);
-    getAllPhotos();
   }
 
   //create a function that runs on submit
