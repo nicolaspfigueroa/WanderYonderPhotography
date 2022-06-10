@@ -3,6 +3,12 @@ import UploadForm from '../UploadForm';
 import Photo from '../Photo';
 
 export default function Admin( {isAuthenticated, getAllPhotos, photos, handleDelete} ) {
+
+  const submitHandler = (e) => {
+    const { name, value } = e.target;
+    
+  }
+
   if (isAuthenticated) {
     return (
       <div className = "container">
@@ -12,6 +18,10 @@ export default function Admin( {isAuthenticated, getAllPhotos, photos, handleDel
             return <div key = {photo._id}>
               <Photo key = {photo._id} photo = {photo}/>
               <button onClick={() => (handleDelete(photo._id))}>Delete</button>
+              <form>
+                <input>
+                </input>
+              </form>
               </div>;
             }))
           }

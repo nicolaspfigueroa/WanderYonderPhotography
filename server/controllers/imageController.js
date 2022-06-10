@@ -61,4 +61,20 @@ exports.getImage = async function (req, res) {
   }
 }
 
+exports.changeTitle = async function (req, res) {
+  try {
+    const { id } = req.params;
+    const { title } = req.body;
+    const updatedImage = await Image.findOneAndUpdate(
+      { _id: id },
+      { title: title },
+      { new: true }
+    );
+    return res.status(200).send( {res: updatedImage, error: false} );
+  } catch (error) {
+    console.log(error);
+    return res.status(500).send({ res: "Internal Server Error!", error: true });
+  }
+}
+
 

@@ -36,10 +36,20 @@ function deleteImage(id) {
     .catch((e) => e);
 }
 
+function changeTitle(id) {
+  return fetch(`${baseURL}/${id}`, {
+    method: "PUT",
+  })
+    .then((res) => res.json())
+    .then((data) => data)
+    .catch((e) => e);
+}
+
 export const imageService = {
   getImages,
   createImage,
   deleteImage,
-  getImage
+  getImage,
+  changeTitle
 };
 
