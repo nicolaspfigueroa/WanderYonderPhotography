@@ -16,6 +16,7 @@ import Admin from './components/Admin';
 function App() {
   const [photos, setPhotos] = useState([]);
   const [error, setError] = useState(null);
+  const [cart, setCart] = useState([]);
 
   const initialState = auth.isAuthenticated();
   const [isAuthenticated, setIsAuthenticated] = useState(initialState);
@@ -58,7 +59,7 @@ function App() {
             <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />}/>
             <Route path="/logout" element={<Logout setIsAuthenticated={setIsAuthenticated} />}/>
             <Route path="/admin" element = {<Admin isAuthenticated = { isAuthenticated } getAllPhotos = {getAllPhotos} photos = {photos} handleDelete = {handleDelete}/>} />
-            <Route path = "/photos/:id" element = {<PhotoDetail photos = {photos} getAllPhotos = {getAllPhotos}/>} />
+            <Route path = "/photos/:id" element = {<PhotoDetail cart = {cart} setCart = {setCart} />} />
           </Routes>
         </div>
       </div>

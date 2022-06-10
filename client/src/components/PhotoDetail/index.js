@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import './styles.css';
 import { imageService } from '../../services/imageService';
 
-export default function PhotoDetail() {
+export default function PhotoDetail( { cart, setCart } ) {
   const { id } = useParams();
   const [image, setImage] = useState([]);
 
@@ -22,12 +22,22 @@ export default function PhotoDetail() {
     }
   }
 
+  const handleCartSubmit = async (e) => {
+    e.preventDefault();
+    const { res, error } = await imageService.getImage(id);
+    if (!error) {
+      setCart((prevValue) => [...prevValue, res])
+    }
+    console.log(cart);
+  }
+
 
   return (
     <>
     <div className = "container">
       <img className = "detail" src = {image.url} alt = ""></img>
       <div>{image.title}</div>
+      <button onClick = {handleCartSubmit}>Add to Cart</button>
     </div>
     </>
   )
