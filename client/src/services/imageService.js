@@ -20,8 +20,18 @@ function createImage(photo) {
     .catch((e) => e);
 }
 
+function deleteImage(id) {
+  return fetch(`${baseURL}/${id}`, {
+    method: "DELETE",
+  })
+    .then((res) => res.json())
+    .then((data) => data)
+    .catch((e) => e);
+}
+
 export const imageService = {
   getImages,
-  createImage
+  createImage,
+  deleteImage
 };
 

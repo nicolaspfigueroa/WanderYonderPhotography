@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import ProgressBar from '../ProgressBar';
-import { projectStorage, projectFirestore } from '../../firebase/config';
+import { projectStorage } from '../../firebase/config';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { imageService } from '../../services/imageService';
 

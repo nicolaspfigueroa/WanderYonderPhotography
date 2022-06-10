@@ -26,4 +26,22 @@ exports.createImage = async function (req, res) {
   }
 };
 
+//function to delete topic routed through api/topics/:id
+exports.deleteImage = async function (req, res) {
+  try {
+    //destructure the message id from req.params
+    const { id } = req.params;
+    //delete the topic associated with the id
+    await Image.deleteOne({ _id: id });
+    //return completion status message
+    return res.status(200).send({
+      res: `Image with id: ${id} deleted successfully!`,
+      error: false,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).send({ res: "Internal Server Error!", error: true });
+  }
+}
+
 

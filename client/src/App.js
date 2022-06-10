@@ -7,7 +7,6 @@ import NavBar from './components/NavBar';
 import Home from './pages/Home';
 import About from './pages/About';
 import Photos from './pages/Photos';
-import UploadForm from './components/UploadForm';
 import PhotoDetail from './components/PhotoDetail';
 import Login from './components/Login';
 import Logout from './components/Logout';
