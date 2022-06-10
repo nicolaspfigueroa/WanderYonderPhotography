@@ -2,7 +2,7 @@ import React from 'react'
 import UploadForm from '../UploadForm';
 import Photo from '../Photo';
 
-export default function Admin( {isAuthenticated, getAllPhotos, photos} ) {
+export default function Admin( {isAuthenticated, getAllPhotos, photos, handleDelete} ) {
   if (isAuthenticated) {
     return (
       <div className = "container">
@@ -11,7 +11,7 @@ export default function Admin( {isAuthenticated, getAllPhotos, photos} ) {
           {photos.map((photo => {
             return <div key = {photo._id}>
               <Photo key = {photo._id} photo = {photo}/>
-              <button>Delete</button>
+              <button onClick={() => (handleDelete(photo._id))}>Delete</button>
               </div>;
             }))
           }

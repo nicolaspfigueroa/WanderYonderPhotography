@@ -35,6 +35,14 @@ function App() {
     }
   }
 
+  const handleDelete = async (id) => {
+    await imageService.deleteImage(id);
+    setPhotos((prevValue) => {
+      const allButId = prevValue.filter((photo) => photo._id !== id);
+      return allButId;
+    });
+  };
+
   return (
     <Router>
       <div className="App">
@@ -46,7 +54,7 @@ function App() {
             <Route path="/photos" element = {<Photos photos = {photos}/>} />
             <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />}/>
             <Route path="/logout" element={<Logout setIsAuthenticated={setIsAuthenticated} />}/>
-            <Route path="/admin" element = {<Admin isAuthenticated = { isAuthenticated } getAllPhotos = {getAllPhotos} photos = {photos}/>} />
+            <Route path="/admin" element = {<Admin isAuthenticated = { isAuthenticated } getAllPhotos = {getAllPhotos} photos = {photos} handleDelete = {handleDelete}/>} />
             <Route path = "/photos/:title" element = {<PhotoDetail photos = {photos}/>} />
           </Routes>
         </div>
