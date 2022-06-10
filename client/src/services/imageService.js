@@ -7,6 +7,15 @@ function getImages() {
     .catch((e) => e);
 }
 
+function getImage(id) {
+  return fetch(`${baseURL}/${id}`, {
+    method: "GET",
+  })
+    .then((res) => res.json())
+    .then((data) => data)
+    .catch((e) => e);
+}
+
 function createImage(photo) {
   return fetch(`${baseURL}`, {
     method: "POST",
@@ -32,6 +41,7 @@ function deleteImage(id) {
 export const imageService = {
   getImages,
   createImage,
-  deleteImage
+  deleteImage,
+  getImage
 };
 

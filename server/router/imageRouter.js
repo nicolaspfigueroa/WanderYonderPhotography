@@ -6,5 +6,6 @@ const router = Router();
 router.get('/',  imageController.getImages);
 router.post('/',  imageController.createImage);
 router.delete("/:id", imageController.deleteImage);
+router.get("/:id", imageController.getImage);
 
 exports.imageRouter = router;

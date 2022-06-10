@@ -1,28 +1,37 @@
 import React from 'react'
 import { useParams } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './styles.css';
+import { imageService } from '../../services/imageService';
 
-export default function PhotoDetail({ photos, getAllPhotos }) {
+export default function PhotoDetail({ photos }) {
   const { id } = useParams();
+  const [image, setImage] = useState([]);
 
-  // useEffect(() => {
-  //   getAllPhotos();
-  //   console.log('used');
-  // }, []);
+  useEffect(() => {
+    getPhoto();
+  }, []);
 
-  console.log(photos);
+  const getPhoto = async () => {
+    const { res, error } = await imageService.getImage();
 
-  
+    if (!error) {
+      setImage(res);
+    }
+    else {
+      console.log(error);
+    }
+  }
 
-  const photo = photos.filter(image => image.id === id);
-  console.log(photo);
+  // const photo = photos.filter(image => image.id === id);
+  // console.log(photo);
+  console.log(image);
 
   return (
     <>
     <div className = "container">
-      <img className = "detail" src = {photo[0].url} alt = ""></img>
-      <div>{photo[0].title}</div>
+      <img className = "detail" src = {image[0].url} alt = ""></img>
+      <div>{image[0].title}</div>
     </div>
     </>
   )
