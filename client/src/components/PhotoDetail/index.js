@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import './styles.css';
 import { imageService } from '../../services/imageService';
 
-export default function PhotoDetail({ photos }) {
+export default function PhotoDetail() {
   const { id } = useParams();
   const [image, setImage] = useState([]);
 
@@ -13,8 +13,7 @@ export default function PhotoDetail({ photos }) {
   }, []);
 
   const getPhoto = async () => {
-    const { res, error } = await imageService.getImage();
-
+    const { res, error } = await imageService.getImage(id);
     if (!error) {
       setImage(res);
     }
@@ -23,15 +22,12 @@ export default function PhotoDetail({ photos }) {
     }
   }
 
-  // const photo = photos.filter(image => image.id === id);
-  // console.log(photo);
-  console.log(image);
 
   return (
     <>
     <div className = "container">
-      <img className = "detail" src = {image[0].url} alt = ""></img>
-      <div>{image[0].title}</div>
+      <img className = "detail" src = {image.url} alt = ""></img>
+      <div>{image.title}</div>
     </div>
     </>
   )

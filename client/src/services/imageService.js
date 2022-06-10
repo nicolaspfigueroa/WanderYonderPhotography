@@ -8,9 +8,7 @@ function getImages() {
 }
 
 function getImage(id) {
-  return fetch(`${baseURL}/${id}`, {
-    method: "GET",
-  })
+  return fetch(`${baseURL}/${id}`)
     .then((res) => res.json())
     .then((data) => data)
     .catch((e) => e);
