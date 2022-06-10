@@ -11,6 +11,7 @@ import PhotoDetail from './components/PhotoDetail';
 import Login from './components/Login';
 import Logout from './components/Logout';
 import Admin from './components/Admin';
+import Cart from './components/Cart';
 
 
 function App() {
@@ -60,6 +61,7 @@ function App() {
             <Route path="/logout" element={<Logout setIsAuthenticated={setIsAuthenticated} />}/>
             <Route path="/admin" element = {<Admin isAuthenticated = { isAuthenticated } getAllPhotos = {getAllPhotos} photos = {photos} handleDelete = {handleDelete}/>} />
             <Route path = "/photos/:id" element = {<PhotoDetail cart = {cart} setCart = {setCart} />} />
+            <Route path="/cart" element = {<Cart cart = { cart }/>} />
           </Routes>
         </div>
       </div>

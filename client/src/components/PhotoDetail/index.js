@@ -28,9 +28,7 @@ export default function PhotoDetail( { cart, setCart } ) {
     if (!error) {
       setCart((prevValue) => [...prevValue, res])
     }
-    console.log(cart);
   }
-
 
   return (
     <>

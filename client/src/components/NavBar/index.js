@@ -15,6 +15,9 @@ export default function NavBar({ isAuthenticated }) {
         <li>
         <Link to = "/photos">Photos</Link>
         </li>
+        <li>
+          <Link to = "/cart">Cart</Link>
+        </li>
         {isAuthenticated ? (
           <>
           <li>
