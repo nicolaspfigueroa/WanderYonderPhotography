@@ -36,9 +36,15 @@ function deleteImage(id) {
     .catch((e) => e);
 }
 
-function changeTitle(id) {
+function changeTitle(id, title) {
+  console.log('here', id)
+  const input = {title:title};
+  console.log(input);
+  console.log(JSON.stringify(input));
   return fetch(`${baseURL}/${id}/title`, {
     method: "PUT",
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(input)
   })
     .then((res) => res.json())
     .then((data) => data)
