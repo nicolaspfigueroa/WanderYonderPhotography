@@ -37,7 +37,7 @@ function deleteImage(id) {
 }
 
 function changeTitle(id) {
-  return fetch(`${baseURL}/${id}`, {
+  return fetch(`${baseURL}/${id}/title`, {
     method: "PUT",
   })
     .then((res) => res.json())

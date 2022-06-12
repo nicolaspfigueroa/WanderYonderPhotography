@@ -7,6 +7,6 @@ router.get('/',  imageController.getImages);
 router.post('/',  imageController.createImage);
 router.delete("/:id", imageController.deleteImage);
 router.get("/:id", imageController.getImage);
-router.put("/:id", imageController.changeTitle);
+router.put("/:id/title", imageController.changeTitle);
 
 exports.imageRouter = router;
