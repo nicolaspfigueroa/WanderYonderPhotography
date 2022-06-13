@@ -1,0 +1,30 @@
+body {
+  background-color: orange;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+}
+
+.about-container {
+  display: flex;
+  height: 500px;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgba(240, 240, 240, 0.2);
+}
+
+.text {
+  width: 50%;
+  text-align: start;
+}
+
+.image {
+  height: 80%;
+  width: 300px;
+  background-image: url('../../assets/IMG_8128-Edit.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
