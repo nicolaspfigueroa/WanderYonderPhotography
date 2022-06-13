@@ -1,5 +1,6 @@
 import React from 'react'
-import PhotoGrid from '../PhotoGrid';
+import CartItem from '../CartItem';
+import './styles.css';
 
 export default function Cart( { cart } ) {
   console.log(cart);
@@ -12,11 +13,7 @@ export default function Cart( { cart } ) {
     return (
       <div className="cart-container">
         {cart.map((item) => {
-          return <div className = "item">
-            {item.res.title}
-            {item.typePrint}
-            {item.quantity}
-          </div>
+          return <CartItem key = {item.res._id} item = {item}></CartItem>
           })
         }
       </div>

@@ -1,0 +1,21 @@
+.item {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  margin: 20px;
+  justify-content: space-around;
+}
+
+.item-image {
+  width: 30%;
+  height: 30%;
+}
+
+.item-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  text-align: start;
+}
