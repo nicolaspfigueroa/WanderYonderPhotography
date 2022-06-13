@@ -1,5 +1,6 @@
 body {
   background-image: url('../../assets/500A9897.jpg');
+  background-attachment: fixed;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;

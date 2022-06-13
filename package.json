@@ -5,5 +5,9 @@
     "firebase": "^9.8.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.3.6"
+  },
+  "devDependencies": {
+    "eslint": "^8.17.0",
+    "eslint-plugin-react": "^7.30.0"
   }
 }
