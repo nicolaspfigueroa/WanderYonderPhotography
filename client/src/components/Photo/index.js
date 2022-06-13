@@ -8,7 +8,7 @@ export default function Photo({ photo }) {
       <Link to = {`/photos/${photo._id}`}>
         <img className = "photo" src = {photo.url} alt = ""></img>
       </Link>
-      <div>{photo.title}</div>
+      <div className = "photo-title">{photo.title}</div>
     </div>
   )
 }
