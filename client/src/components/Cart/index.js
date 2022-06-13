@@ -2,7 +2,8 @@ import React from 'react'
 import PhotoGrid from '../PhotoGrid';
 
 export default function Cart( { cart } ) {
-  if (!cart) {
+  console.log(cart);
+  if (cart.length === 0) {
     return (
       <div>Cart is empty!</div>
     )
@@ -10,7 +11,7 @@ export default function Cart( { cart } ) {
   else {
     return (
       <div className="cart-container">
-        <PhotoGrid photos = { cart }></PhotoGrid>
+        {cart}
       </div>
     )
   }

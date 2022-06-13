@@ -7,6 +7,8 @@ import { imageService } from '../../services/imageService';
 export default function PhotoDetail( { cart, setCart } ) {
   const { id } = useParams();
   const [image, setImage] = useState([]);
+  const [typePrint, setTypePrint] = useState('Photo Paper');
+  const [quantity, setQuantity] = useState("1");
 
   useEffect(() => {
     getPhoto();
@@ -26,7 +28,15 @@ export default function PhotoDetail( { cart, setCart } ) {
     e.preventDefault();
     const { res, error } = await imageService.getImage(id);
     if (!error) {
-      setCart((prevValue) => [...prevValue, res])
+      cart.forEach(item => {
+        if (item.res._id === res._id && item.typePrint === typePrint) {
+          item.quantity = (parseInt(item.quantity) + parseInt(quantity)) + '';
+        }
+        else {
+          const item = {res, typePrint, quantity};
+          setCart((prevValue) => [...prevValue, item])
+        }
+      })
     }
   }
 
@@ -39,10 +49,24 @@ export default function PhotoDetail( { cart, setCart } ) {
       </div>
       <form className = "cart-buttons">
         <label>Select Print Type</label>
-        <select>
-          <option value = "Photo Paper"></option>
-          <option value = "Canvas"></option>
-          <option value = "Metal Board"></option>
+        <select
+          value = {typePrint}
+          onChange = {(e) => setTypePrint(e.target.value)}
+        >
+          <option value = "Photo Paper">Photo Paper</option>
+          <option value = "Canvas">Canvas</option>
+          <option value = "Metal Board">Metal Board</option>
+        </select>
+        <label>Select Quantity</label>
+        <select
+        value = {quantity}
+        onChange = {(e) => setQuantity(e.target.value)}
+        >
+        <option value = "1">1</option>
+        <option value = "2">2</option>
+        <option value = "3">3</option>
+        <option value = "4">4</option>
+        <option value = "5">5</option>
         </select>
         <button onClick = {handleCartSubmit}>Add to Cart</button>
       </form>
