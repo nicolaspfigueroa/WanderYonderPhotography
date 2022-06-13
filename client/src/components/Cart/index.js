@@ -11,7 +11,14 @@ export default function Cart( { cart } ) {
   else {
     return (
       <div className="cart-container">
-        {cart[0].typePrint}
+        {cart.map((item) => {
+          return <div className = "item">
+            {item.res.title}
+            {item.typePrint}
+            {item.quantity}
+          </div>
+          })
+        }
       </div>
     )
   }
