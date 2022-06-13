@@ -8,6 +8,11 @@ body {
 }
 
 .container {
+  display: flex;
   color: white;
   margin: 50px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
 }

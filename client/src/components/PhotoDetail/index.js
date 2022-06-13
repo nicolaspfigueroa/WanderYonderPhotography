@@ -32,10 +32,14 @@ export default function PhotoDetail( { cart, setCart } ) {
 
   return (
     <>
-    <div className = "container">
-      <img className = "detail" src = {image.url} alt = ""></img>
-      <div>{image.title}</div>
-      <button onClick = {handleCartSubmit}>Add to Cart</button>
+    <div className = "detail-container">
+      <div className = "detail">
+        <img className = "detail-image" src = {image.url} alt = ""></img>
+        <div>{image.title}</div>
+      </div>
+      <div className = "cart-buttons">
+        <button onClick = {handleCartSubmit}>Add to Cart</button>
+      </div>
     </div>
     </>
   )
