@@ -55,9 +55,9 @@ export default function PhotoDetail( { cart, setCart } ) {
           value = {typePrint}
           onChange = {(e) => setTypePrint(e.target.value)}
         >
-          <option value = "Photo Paper">Photo Paper</option>
-          <option value = "Canvas">Canvas</option>
-          <option value = "Metal Board">Metal Board</option>
+          <option value = "Photo Paper">Photo Paper - $45</option>
+          <option value = "Canvas">Canvas - $80</option>
+          <option value = "Metal Board">Metal Board - $100</option>
         </select>
         <label>Select Quantity</label>
         <select
