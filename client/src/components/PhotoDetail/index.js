@@ -26,17 +26,19 @@ export default function PhotoDetail( { cart, setCart } ) {
 
   const handleCartSubmit = async (e) => {
     e.preventDefault();
+    let check = false;
     const { res, error } = await imageService.getImage(id);
     if (!error) {
       cart.forEach(item => {
         if (item.res._id === res._id && item.typePrint === typePrint) {
+          check = true;
           item.quantity = (parseInt(item.quantity) + parseInt(quantity)) + '';
         }
-        else {
-          const item = {res, typePrint, quantity};
-          setCart((prevValue) => [...prevValue, item])
-        }
       })
+      if (!check) {
+        const item = {res, typePrint, quantity};
+        setCart((prevValue) => [...prevValue, item])
+      }
     }
   }
 

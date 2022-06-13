@@ -11,7 +11,7 @@ export default function Cart( { cart } ) {
   else {
     return (
       <div className="cart-container">
-        {cart}
+        {cart[0].typePrint}
       </div>
     )
   }
