@@ -5,33 +5,35 @@ import './styles.css';
 export default function NavBar({ isAuthenticated }) {
   return (
     <div className="nav">
-      <Link to = "/" className = "home">
-        Home
-      </Link>
-      <ul>
-        <li>
-        <Link to = "/about">About</Link>
-        </li>
-        <li>
-        <Link to = "/photos">Photos</Link>
-        </li>
-        <li>
-          <Link to = "/cart">Cart</Link>
-        </li>
-        {isAuthenticated ? (
-          <>
+      <div className = "nav-items">
+        <Link to = "/" className = "home">
+          HOME
+        </Link>
+        <ul>
           <li>
-            <Link to = "/admin">Add / Edit Photos</Link>
+          <Link to = "/about">ABOUT</Link>
           </li>
           <li>
-            <Link to = "/logout">Logout</Link>
+          <Link to = "/photos">PHOTOS</Link>
           </li>
-          </>
-        ) : (
-          <>
-          </>
-        )}
-      </ul>
+          <li>
+            <Link to = "/cart">CART</Link>
+          </li>
+          {isAuthenticated ? (
+            <>
+            <li>
+              <Link to = "/admin">ADD / EDIT PHOTOS</Link>
+            </li>
+            <li>
+              <Link to = "/logout">LOGOUT</Link>
+            </li>
+            </>
+          ) : (
+            <>
+            </>
+          )}
+        </ul>
+      </div>
     </div>
   )
 }

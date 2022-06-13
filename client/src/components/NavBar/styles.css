@@ -7,13 +7,23 @@ body {
 }
 
 .nav {
-  background-color: rgba(240, 240, 240, 0.2);
+  background-color: rgba(240, 240, 240, 0);
   color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 2rem;
   padding: 0 1 rem;
+}
+
+.nav-items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  padding: 0 1 rem;
+  width: 100%;
+  margin: 30px;
 }
 
 .nav ul {
