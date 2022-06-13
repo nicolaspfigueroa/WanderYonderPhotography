@@ -1,7 +1,15 @@
 import React from 'react'
+import { useEffect } from 'react';
 import './styles.css';
 
-export default function CartItem({ item }) {
+export default function CartItem({ item, setPrice }) {
+
+  useEffect(() => {
+    let newPrice = getPrice()
+    setPrice((prevValue) => {
+      return [...prevValue, newPrice]
+    })
+  }, [])
 
   const getPrice = () => {
     let price = 0;
