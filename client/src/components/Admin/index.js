@@ -14,6 +14,8 @@ export default function Admin( {isAuthenticated, getAllPhotos, photos, handleDel
     console.log(id);
     //const { name, value } = e.target;
     await imageService.changeTitle(id, title);
+    await getAllPhotos();
+    setTitle('');
   }
 
   if (isAuthenticated) {
