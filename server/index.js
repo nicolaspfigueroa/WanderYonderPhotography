@@ -1,23 +1,23 @@
+const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
+const stripPublicKey = process.env.STRIPE_PUBLIC_KEY;
+
 const express = require ('express');
 const app = express();
 const cors = require('cors');
 const { router } = require('./router/index');
+require('dotenv').config();
 
 PORT = 3001;
 
-// if (process.env.NODE_ENV !== 'production') {
-//   require('dotenv').load()
-// }
 
 const corsConfig = {
-  // REMOVE-START
   origin: 'http://localhost:3000',
   credentials: true,
-  // REMOVE-END
 };
 
 app.use(cors(corsConfig)); //cors access
 app.use(express.json()); // body parser
+app.use(express.static('public'));
 app.use(router); //router
 
 app.listen(PORT, () => {

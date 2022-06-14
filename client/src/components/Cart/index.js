@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import CartItem from '../CartItem';
 import './styles.css';
+import apiService from '../../services/ApiService';
 
 export default function Cart( { cart, handleDeleteCart } ) {
 
@@ -13,12 +14,9 @@ export default function Cart( { cart, handleDeleteCart } ) {
     }
     else {
       total = cart.reduce((a,b) => {
-        console.log(a.price)
-        console.log(b.price)
         return a + b.price;
       }, 0)
     }
-    console.log(total);
     return total;
   }
 
@@ -37,7 +35,7 @@ export default function Cart( { cart, handleDeleteCart } ) {
         }
         </div>
         <div className = "total">Total: ${getTotal()}</div>
-        <Link to = "/checkout">CHECKOUT</Link>
+        <button onClick = {() => (apiService.createCheckoutSession(cart))}>CHECKOUT</button>
       </div>
     )
   }

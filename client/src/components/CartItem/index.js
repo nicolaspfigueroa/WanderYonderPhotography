@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import './styles.css';
 
 export default function CartItem({ item, handleDeleteCart, cart}) {
-
+  console.log(cart);
   return (
     <div className = "item">
       <img className = "item-image" src = {item.res.url} alt = ""></img>

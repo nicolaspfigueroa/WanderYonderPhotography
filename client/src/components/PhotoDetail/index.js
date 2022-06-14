@@ -56,7 +56,6 @@ export default function PhotoDetail( { cart, setCart } ) {
         const item = {res, typePrint, quantity, price};
         item.price = (getPrice());
         setCart((prevValue) => [...prevValue, item])
-        console.log(cart);
       }
     }
   }
