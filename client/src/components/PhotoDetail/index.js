@@ -38,6 +38,7 @@ export default function PhotoDetail( { cart, setCart } ) {
       if (!check) {
         const item = {res, typePrint, quantity};
         setCart((prevValue) => [...prevValue, item])
+        console.log(cart);
       }
     }
   }
@@ -55,7 +56,7 @@ export default function PhotoDetail( { cart, setCart } ) {
           value = {typePrint}
           onChange = {(e) => setTypePrint(e.target.value)}
         >
-          <option value = "Photo Paper">Photo Paper - $45</option>
+          <option value = "Photo Paper">Photo Paper - $40</option>
           <option value = "Canvas">Canvas - $80</option>
           <option value = "Metal Board">Metal Board - $100</option>
         </select>

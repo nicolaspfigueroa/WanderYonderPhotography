@@ -3,27 +3,26 @@ import { useEffect } from 'react';
 import './styles.css';
 
 export default function CartItem({ item, setPrice }) {
-
   useEffect(() => {
     let newPrice = getPrice()
     setPrice((prevValue) => {
-      return [...prevValue, newPrice]
-    })
+      console.log(prevValue);
+      return [...prevValue, newPrice]});
   }, [])
 
   const getPrice = () => {
-    let price = 0;
+    let thisPrice = 0;
     if (item.typePrint === 'Photo Paper') {
-      price = 40
+      thisPrice = 40
     }
     if (item.typePrint === 'Canvas') {
-      price = 80;
+      thisPrice = 80;
     }
     if (item.typePrint === 'Metal Board') {
-      price = 100;
+      thisPrice = 100;
     }
 
-    return price * parseInt(item.quantity)
+    return thisPrice * parseInt(item.quantity)
   }
 
   return (

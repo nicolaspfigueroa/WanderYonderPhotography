@@ -6,6 +6,7 @@ import './styles.css';
 export default function Cart( { cart } ) {
   const [price, setPrice] = useState([]);
 
+  console.log(cart);
   console.log(price);
 
   const getTotal = () => {
