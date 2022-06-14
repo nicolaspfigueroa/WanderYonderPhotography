@@ -29,3 +29,20 @@
 .image-title {
   margin: 20px;
 }
+
+.cart-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin: 15px;
+}
+
+button {
+  margin: 15px;
+}
+
+option {
+  text-align: center;
+}
