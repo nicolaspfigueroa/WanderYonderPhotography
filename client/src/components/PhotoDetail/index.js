@@ -8,7 +8,8 @@ export default function PhotoDetail( { cart, setCart } ) {
   const { id } = useParams();
   const [image, setImage] = useState([]);
   const [typePrint, setTypePrint] = useState('Photo Paper');
-  const [quantity, setQuantity] = useState("1");
+  const [quantity, setQuantity] = useState('1');
+  const [price, setPrice] = useState('0');
 
   useEffect(() => {
     getPhoto();
@@ -24,6 +25,21 @@ export default function PhotoDetail( { cart, setCart } ) {
     }
   }
 
+  const getPrice = () => {
+    let thisPrice = 0;
+    if (typePrint === 'Photo Paper') {
+      thisPrice = 40
+    }
+    if (typePrint === 'Canvas') {
+      thisPrice = 80;
+    }
+    if (typePrint === 'Metal Board') {
+      thisPrice = 100;
+    }
+
+    return thisPrice * parseInt(quantity)
+  }
+
   const handleCartSubmit = async (e) => {
     e.preventDefault();
     let check = false;
@@ -33,10 +49,12 @@ export default function PhotoDetail( { cart, setCart } ) {
         if (item.res._id === res._id && item.typePrint === typePrint) {
           check = true;
           item.quantity = (parseInt(item.quantity) + parseInt(quantity)) + '';
+          item.price = item.price + (getPrice());
         }
       })
       if (!check) {
-        const item = {res, typePrint, quantity};
+        const item = {res, typePrint, quantity, price};
+        item.price = (getPrice());
         setCart((prevValue) => [...prevValue, item])
         console.log(cart);
       }
