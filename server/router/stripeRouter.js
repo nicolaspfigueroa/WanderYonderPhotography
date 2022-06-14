@@ -16,18 +16,18 @@ router.post('/create-checkout-session', async (req, res) => {
           product_data: {
             name: item.res.title,
           },
-          unit_amount: item.price,
+          unit_amount: (item.price * 100) / item.quantity,
         },
         quantity: item.quantity
       }
     }),
     mode: 'payment',
     payment_method_types: ["card"],
-    success_url: `${YOUR_DOMAIN}`,
-    cancel_url: `${YOUR_DOMAIN}/photos`,
+    success_url: `${YOUR_DOMAIN}/checkout`,
+    cancel_url: `${YOUR_DOMAIN}/checkout`,
   });
 
-  res.redirect(303, session.url);
+  res.json({url: session.url})
 });
 
 exports.stripeRouter = router;
