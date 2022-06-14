@@ -1,6 +1,6 @@
 import React from 'react'
 import UploadForm from '../UploadForm';
-import Photo from '../Photo';
+import AdminElement from '../AdminElement';
 import { imageService } from '../../services/imageService';
 import { useEffect, useState } from 'react';
 
@@ -24,21 +24,8 @@ export default function Admin( {isAuthenticated, getAllPhotos, photos, handleDel
         <UploadForm getAllPhotos = {getAllPhotos}></UploadForm>
         <div className= "photo-grid-container">
           {photos.map((photo => {
-            return <div key = {photo._id}>
-              <Photo key = {photo._id} photo = {photo}/>
-              <button onClick={() => (handleDelete(photo._id))}>Delete</button>
-              <form onSubmit = {(e) => {
-                submitHandler(e, photo._id, title)}}>
-                <input 
-                placeholder = "Change Title"
-                type = "text"
-                value = {title}
-                onChange = {(e) => setTitle(e.target.value)}
-                >
-                </input>
-                <button type = "submit">Submit New Title</button>
-              </form>
-              </div>;
+            return <AdminElement key = {photo._id} handleDelete = {handleDelete} submitHandler = {submitHandler} title = {title} setTitle = {setTitle} photo =  {photo}>
+            </AdminElement>;
             }))
           }
         </div>
