@@ -12,6 +12,7 @@ import Login from './components/Login';
 import Logout from './components/Logout';
 import Admin from './components/Admin';
 import Cart from './components/Cart';
+import Checkout from './components/Checkout';
 
 
 function App() {
@@ -71,6 +72,7 @@ function App() {
             <Route path="/admin" element = {<Admin isAuthenticated = { isAuthenticated } getAllPhotos = {getAllPhotos} photos = {photos} handleDelete = {handleDelete}/>} />
             <Route path = "/photos/:id" element = {<PhotoDetail cart = {cart} setCart = {setCart} />} />
             <Route path="/cart" element = {<Cart cart = { cart } handleDeleteCart = {handleDeleteCart}/>} />
+            <Route path="/checkout" element = {<Checkout cart = { cart }/>} />
           </Routes>
         </div>
       </div>

@@ -19,6 +19,7 @@ coverage
 # Dependency directories
 bower_components
 node_modules
+.env
 
 # Optional npm cache directory
 .npm

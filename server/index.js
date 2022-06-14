@@ -5,6 +5,10 @@ const { router } = require('./router/index');
 
 PORT = 3001;
 
+// if (process.env.NODE_ENV !== 'production') {
+//   require('dotenv').load()
+// }
+
 const corsConfig = {
   // REMOVE-START
   origin: 'http://localhost:3000',

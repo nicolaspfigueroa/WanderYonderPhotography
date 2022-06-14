@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import CartItem from '../CartItem';
 import './styles.css';
 
@@ -21,8 +22,6 @@ export default function Cart( { cart, handleDeleteCart } ) {
     return total;
   }
 
-  console.log(cart);
-
   if (cart.length === 0) {
     return (
       <div>Cart is empty!</div>
@@ -38,6 +37,7 @@ export default function Cart( { cart, handleDeleteCart } ) {
         }
         </div>
         <div className = "total">Total: ${getTotal()}</div>
+        <Link to = "/checkout">CHECKOUT</Link>
       </div>
     )
   }
