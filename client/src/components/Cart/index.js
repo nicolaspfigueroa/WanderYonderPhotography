@@ -4,20 +4,22 @@ import CartItem from '../CartItem';
 import './styles.css';
 
 export default function Cart( { cart, handleDeleteCart } ) {
-  // const [price, setPrice] = useState([]);
 
-  // const getTotal = () => {
-  //   let total = 0;
-  //   if (price.length === 0) {
-  //     return '';
-  //   }
-  //   else {
-  //     total = price.reduce((a,b) => {
-  //       return a+b;
-  //     })
-  //   }
-  //   return total;
-  // }
+  const getTotal = () => {
+    let total = 0;
+    if (cart.length === 0) {
+      return '';
+    }
+    else {
+      total = cart.reduce((a,b) => {
+        console.log(a.price)
+        console.log(b.price)
+        return a + b.price;
+      }, 0)
+    }
+    console.log(total);
+    return total;
+  }
 
   console.log(cart);
 
@@ -35,7 +37,7 @@ export default function Cart( { cart, handleDeleteCart } ) {
           })
         }
         </div>
-        <div className = "total">Total: ${/*getTotal()*/}</div>
+        <div className = "total">Total: ${getTotal()}</div>
       </div>
     )
   }

@@ -8,9 +8,6 @@ export default function AdminElement({handleDelete, photo, getAllPhotos}) {
 
   const submitHandler = async (e, id, title) => {
     e.preventDefault();
-    console.log(e.target);
-    console.log(id);
-    //const { name, value } = e.target;
     await imageService.changeTitle(id, title);
     await getAllPhotos();
     setTitle('');
