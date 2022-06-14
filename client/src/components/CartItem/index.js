@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect } from 'react';
 import './styles.css';
 
-export default function CartItem({ item, setPrice }) {
+export default function CartItem({ item, setPrice, handleDeleteCart }) {
   useEffect(() => {
     let newPrice = getPrice()
     setPrice((prevValue) => {
@@ -32,6 +32,7 @@ export default function CartItem({ item, setPrice }) {
         Title: {item.res.title}<br></br> Print: {item.typePrint} <br></br> Quanitity: {item.quantity}
       </div>
       <div className = "price">Subtotal: ${getPrice()}</div>
+      <button onClick = {() => (handleDeleteCart(item.res._id))}>Delete</button>
     </div>
   )
 }

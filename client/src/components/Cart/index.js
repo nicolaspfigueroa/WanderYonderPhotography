@@ -3,11 +3,8 @@ import { useState } from 'react';
 import CartItem from '../CartItem';
 import './styles.css';
 
-export default function Cart( { cart } ) {
+export default function Cart( { cart, handleDeleteCart } ) {
   const [price, setPrice] = useState([]);
-
-  console.log(cart);
-  console.log(price);
 
   const getTotal = () => {
     let total = 0;
@@ -22,8 +19,6 @@ export default function Cart( { cart } ) {
     return total;
   }
 
-  console.log(getTotal());
-
   if (cart.length === 0) {
     return (
       <div>Cart is empty!</div>
@@ -34,7 +29,7 @@ export default function Cart( { cart } ) {
       <div className="cart-container">
         <div className = "cart-item-container">
         {cart.map((item) => {
-          return <CartItem key = {item.res._id} item = {item} setPrice = {setPrice}></CartItem>
+          return <CartItem key = {item.res._id} item = {item} setPrice = {setPrice} handleDeleteCart = {handleDeleteCart}></CartItem>
           })
         }
         </div>

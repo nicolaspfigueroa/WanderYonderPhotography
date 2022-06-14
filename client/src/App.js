@@ -48,6 +48,15 @@ function App() {
     });
   };
 
+  const handleDeleteCart = (id) => {
+    console.log(id);
+    console.log(cart);
+    setCart((prevValue) => {
+      const allButId = prevValue.filter((item) => item.res._id !== id);
+      return allButId;
+    });
+  };
+
   return (
     <Router>
       <div className="App">
@@ -61,7 +70,7 @@ function App() {
             <Route path="/logout" element={<Logout setIsAuthenticated={setIsAuthenticated} />}/>
             <Route path="/admin" element = {<Admin isAuthenticated = { isAuthenticated } getAllPhotos = {getAllPhotos} photos = {photos} handleDelete = {handleDelete}/>} />
             <Route path = "/photos/:id" element = {<PhotoDetail cart = {cart} setCart = {setCart} />} />
-            <Route path="/cart" element = {<Cart cart = { cart }/>} />
+            <Route path="/cart" element = {<Cart cart = { cart } handleDeleteCart = {handleDeleteCart}/>} />
           </Routes>
         </div>
       </div>
