@@ -1,7 +1,22 @@
 import React from 'react'
 import Photo from '../Photo';
+import { useState } from 'react';
+import { imageService } from '../../services/imageService';
 
-export default function AdminElement({handleDelete, submitHandler, setTitle, title, photo}) {
+export default function AdminElement({handleDelete, photo, getAllPhotos}) {
+  const [title, setTitle] = useState('');
+
+  const submitHandler = async (e, id, title) => {
+    e.preventDefault();
+    console.log(e.target);
+    console.log(id);
+    //const { name, value } = e.target;
+    await imageService.changeTitle(id, title);
+    await getAllPhotos();
+    setTitle('');
+  }
+
+
   return (
     <div>
     <Photo key = {photo._id} photo = {photo}/>
