@@ -1,0 +1,21 @@
+.logout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+}
+
+.confirm-btn {
+  width: 50px;
+  height: 50px;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+}

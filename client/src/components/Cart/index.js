@@ -35,7 +35,9 @@ export default function Cart( { cart, handleDeleteCart } ) {
         }
         </div>
         <div className = "total">Total: ${getTotal()}</div>
+        <div className = "checkout">
         <button onClick = {() => (apiService.createCheckoutSession(cart))}>CHECKOUT</button>
+        </div>
       </div>
     )
   }

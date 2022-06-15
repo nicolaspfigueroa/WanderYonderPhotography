@@ -60,7 +60,7 @@ const Login = (props) => {
         />
         <input
           type="password"
-          placeholder="supersecretthingy"
+          placeholder="password"
           name="password"
           value={state.password}
           onChange={handleChange}
