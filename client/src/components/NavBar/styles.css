@@ -43,3 +43,12 @@ body {
   align-items: center;
   padding: .25rem;
 }
+
+.logo {
+  background-image: url('../../assets/Wander-Yonder-white-low-res.jpg');
+  height: 125px;
+  width: 300px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-left: 450px;
+}

@@ -9,7 +9,7 @@ export default function NavBar({ isAuthenticated }) {
         <Link to = "/" className = "home">
           HOME
         </Link>
-        <img src = "../../assets/Wander-Yonder-white-low-res.png"></img>
+        <div className = "logo"></div>
         <ul>
           <li>
           <Link to = "/about">ABOUT</Link>
