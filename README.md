@@ -7,9 +7,9 @@
 ## Screenshots
 
 <p align="center">
-  <img title="" src="https://github.com/nicolaspfigueroa/WanderYonderPhotography/blob/main/client/screens/home.JPG?raw=true" alt="Home" width="500" height="500"/>
-  <img title="" src="https://github.com/nicolaspfigueroa/WanderYonderPhotography/blob/main/client/screens/about.JPG?raw=true" alt="About" width="500" height="500"/>
-  <img title="" src="https://github.com/nicolaspfigueroa/WanderYonderPhotography/blob/main/client/screens/photos.JPG?raw=true" alt="Photos" width="500" height="500"/>
+  <img title="" src="https://github.com/nicolaspfigueroa/WanderYonderPhotography/blob/main/client/screens/home.JPG?raw=true" alt="Home" width="500" />
+  <img title="" src="https://github.com/nicolaspfigueroa/WanderYonderPhotography/blob/main/client/screens/about.JPG?raw=true" alt="About" width="500" />
+  <img title="" src="https://github.com/nicolaspfigueroa/WanderYonderPhotography/blob/main/client/screens/photos.JPG?raw=true" alt="Photos" width="500"/>
 </p>
 
 ## Setup
