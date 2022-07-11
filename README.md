@@ -4,6 +4,14 @@
 - He wanted a personalized website that would allow users to view his photos and purchase prints.
 - He has access to the admin page where he can edit / add /delete the photos displayed.
 
+## Screenshots
+
+<p align="center">
+  <img title="" src="https://github.com/nicolaspfigueroa/WanderYonderPhotography/blob/main/client/screens/home.JPG?raw=true" alt="Home" width="500" height="500"/>
+  <img title="" src="https://github.com/nicolaspfigueroa/WanderYonderPhotography/blob/main/client/screens/about.JPG?raw=true" alt="About" width="500" height="500"/>
+  <img title="" src="https://github.com/nicolaspfigueroa/WanderYonderPhotography/blob/main/client/screens/photos.JPG?raw=true" alt="Photos" width="500" height="500"/>
+</p>
+
 ## Setup
 
 - Install all node packages using the command "npm i" in the root directory, and client folder.
